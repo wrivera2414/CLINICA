@@ -21,6 +21,9 @@ import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.RouteAlias;
+
+import hn.clinica.data.controller.PacientesInteractor;
+import hn.clinica.data.controller.PacientesInteractorImpl;
 import hn.clinica.data.entity.Pacientes;
 import hn.clinica.views.MainLayout;
 import java.util.Collection;
@@ -31,7 +34,7 @@ import java.util.ArrayList;
 @PageTitle("Pacientes")
 @Route(value = "pacientes/:pacientesID?/:action?(edit)", layout = MainLayout.class)
 @RouteAlias(value = "", layout = MainLayout.class)
-public class PacientesView extends Div implements BeforeEnterObserver {
+public class PacientesView extends Div implements BeforeEnterObserver, PacientesViewModel {
 
     private final String PACIENTES_EDIT_ROUTE_TEMPLATE = "pacientes/%s/edit";
     private final Grid<Pacientes> grid = new Grid<>(Pacientes.class, false);
@@ -40,19 +43,21 @@ public class PacientesView extends Div implements BeforeEnterObserver {
     private TextField identidad;
     private TextField telefono;
     private TextField edad;
-    //private TextField sangre;
     private ComboBox<Pacientes> sangre;
     private TextField peso;
     private TextField altura;
+    private List<Pacientes> pacientes;
     
 
     private final Button cancel = new Button("Cancelar");
     private final Button save = new Button("Guardar");
-    private Pacientes pacientes;
-    
+    private Pacientes paciente;
+    private PacientesInteractor controlador;
 
     public PacientesView() {
         addClassNames("pacientes-view");
+        pacientes = new ArrayList<>();
+        this.controlador = new PacientesInteractorImpl(this);
 
         // Create UI
         SplitLayout splitLayout = new SplitLayout();
@@ -87,6 +92,9 @@ public class PacientesView extends Div implements BeforeEnterObserver {
                 UI.getCurrent().navigate(PacientesView.class);
             }
         });
+        
+        //mando a traer los pacientes del repositorio
+        this.controlador.consultarPacientes();
 
         cancel.addClickListener(e -> {
             clearForm();
@@ -95,8 +103,8 @@ public class PacientesView extends Div implements BeforeEnterObserver {
 
         save.addClickListener(e -> {
             try {
-                if (this.pacientes == null) {
-                    this.pacientes = new Pacientes();
+                if (this.paciente == null) {
+                    this.paciente = new Pacientes();
                 }
                 clearForm();
                 refreshGrid();
@@ -222,6 +230,16 @@ public class PacientesView extends Div implements BeforeEnterObserver {
     }
 
     private void populateForm(Pacientes value) {
-        this.pacientes = value;
+        this.paciente = value;
     }
+
+	@Override
+	public void refrescarGridPacientes(List<Pacientes> pacientes) {
+		//Este Metodo refresca el Grid
+		
+		Collection<Pacientes> items = pacientes;
+		grid.setItems(items);
+		this.pacientes = pacientes;
+		
+	}
 }
