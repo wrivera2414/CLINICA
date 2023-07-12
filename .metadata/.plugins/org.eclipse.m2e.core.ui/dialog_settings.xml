@@ -3,6 +3,7 @@
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
 			<item value="C:\Users\DELL\Documents\Java-WorkSpace\CLINICA\clinicalpaii"/>
+			<item value="C:\Users\DELL\Documents\Java-WorkSpace\CLINICA\rrhh-empleados"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

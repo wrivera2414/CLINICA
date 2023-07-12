@@ -2,5 +2,25 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="java.util.Collection"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="retrofit2.http.GET"/>
+    <fullyQualifiedTypeName name="retrofit2.http.Headers"/>
+    <fullyQualifiedTypeName name="okhttp3.logging.HttpLoggingInterceptor"/>
+    <fullyQualifiedTypeName name="okhttp3.logging.HttpLoggingInterceptor.Level"/>
+    <fullyQualifiedTypeName name="okhttp3.OkHttpClient"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.TimeUnit"/>
+    <fullyQualifiedTypeName name="retrofit2.Retrofit"/>
+    <fullyQualifiedTypeName name="retrofit2.Retrofit.Builder"/>
+    <fullyQualifiedTypeName name="retrofit2.converter.gson.GsonConverterFactory"/>
+    <fullyQualifiedTypeName name="com.google.gson.GsonBuilder"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="hn.clinica.data.entity.Pacientes"/>
+    <fullyQualifiedTypeName name="hn.clinica.data.service.RepositoryClient"/>
+    <fullyQualifiedTypeName name="retrofit2.Call"/>
+    <fullyQualifiedTypeName name="retrofit2.Response"/>
+    <fullyQualifiedTypeName name="hn.clinica.data.entity.CLINICARepositoryImpl"/>
+    <fullyQualifiedTypeName name="hn.clinica.views.pacientes.PacientesViewModel"/>
+    <fullyQualifiedTypeName name="hn.clinica.data.entity.ResponsePacientes"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="hn.clinica.data.controller.PacientesInteractor"/>
+    <fullyQualifiedTypeName name="hn.clinica.data.controller.PacientesInteractorImpl"/>
 </qualifiedTypeNameHistroy>
